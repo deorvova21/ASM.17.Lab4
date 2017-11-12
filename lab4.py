@@ -2,6 +2,7 @@
 import st22.main
 import st26.main
 import st38.main
+import st39.main
 #	добавить импорт своего модуля по шаблону
 #	import st<номер по журналу>.main
 
@@ -10,6 +11,7 @@ MENU = [
         ["[22] Ишмаметьев", st22.main.main],
         ["[26] Ларионов", st26.main.main],
         ["[38] Солопеева", st38.main.main],
+        ["[39] Тимошин", st39.main.main],
 #		добавить пункт меню для вызова своей главной функции по шаблону:
 #		["[<номер по журналу>] <Фамилия>", <ссылка на функцию>],
 	]
@@ -24,5 +26,5 @@ def menu():
 try:
 	while True:
 		MENU[menu()][1]()
-except:
-	print("bye")
+except Exception as e:
+	print(e)
