@@ -6,7 +6,7 @@ class Catalog:
         self.catalog = []
         res = urllib.request.urlopen("http://localhost:81/cgi-bin/lab3.py")
         page = str(res.read())
-        res = re.search('\d+">\[24\]', page).group(0)
+        res = re.search('\d+">\[23\]', page).group(0)
         sid = re.search('\d+', res).group(0)
         self.url = 'http://localhost:81/cgi-bin/lab3.py?student=' + sid
 
