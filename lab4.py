@@ -15,7 +15,7 @@ import st38.main
 import st07.main
 import st39.main
 import st23.main
-# import st09.main
+import st09.main
 import st42.main
 import st17.main
 import st20.main
@@ -42,7 +42,7 @@ MENU = [
     ["[35] Сидоренко", st35.main.main],
     ["[38] Солопеева", st38.main.main],
     ["[39] Тимошин", st39.main.main],
-    # ["[09] Беркита", st09.main.main],
+    ["[09] Беркита", st09.main.main],
     ["[42] Худояров", st42.main.main],
     ["[17] Григорян", st17.main.main]
 
