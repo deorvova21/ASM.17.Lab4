@@ -17,6 +17,7 @@ import st23.main
 # import st09.main
 import st42.main
 import st17.main
+import st20.main
 
 #	добавить импорт своего модуля по шаблону
 #	import st<номер по журналу>.main
@@ -29,6 +30,7 @@ MENU = [
     ["[07] Белова", st07.main.main],
     ["[16] Гаврилов", st16.main.main],
     ["[18] Гюлмамедов", st18.main.main],
+    ["[20] Зубарева", st20.main.main],
     # ["[22] Ишмаметьев", st22.main.main],
     ["[23] Кондрат", st23.main.main],
     ["[26] Ларионов", st26.main.main],
