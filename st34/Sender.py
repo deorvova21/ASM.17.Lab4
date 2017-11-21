@@ -19,5 +19,5 @@ class Sender:
             full_url = self.url + f'?student={id}&card_id=-1&action=save_personal_card&'
             request = full_url + urllib.parse.urlencode(card_parameters)
             urllib.request.urlopen(request)
-        print('Sended!')
+        print('Sent!')
 
