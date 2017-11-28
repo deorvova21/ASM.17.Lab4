@@ -76,5 +76,5 @@ def menu():
 try:
     while True:
         MENU[menu()][1]()
-except:
-    print("bye")
+except Exception as ex:
+    print(ex)
