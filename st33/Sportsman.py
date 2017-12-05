@@ -12,3 +12,6 @@ class Sportsman:
 
     def getRating(self):
         return self._rating
+
+    def send():
+        return "&full_name=" + urllib.parse.quote(str(e.getFull_name())) + "&age=" + urllib.parse.quote(str(e.getAge())) + "&rating=" + urllib.parse.quote(str(e.getRating()))
