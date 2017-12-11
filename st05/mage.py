@@ -10,5 +10,5 @@ class Mage(Warrior):
 
 
     def send(self):
-        warInf = "&name="+urq.quote(self.name)+"&health="+urq.quote(self.health)+"&attack="+urq.quote(self.attack)+"&mana="+urq.quote(self.mana)+"&spell="+urq.quote(self.spell)
+        warInf = "&name="+urq.quote(self.name)+"&health="+urq.quote(self.health)+"&attack="+urq.quote(self.attack)+"&mana="+urq.quote(self.mana)+"&spell="+urq.quote(self.spell)+"&action=7"
         return warInf

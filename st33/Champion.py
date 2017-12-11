@@ -8,3 +8,7 @@ class Champion(Sportsman):
 
     def getWins(self):
         return self._wins
+
+    
+    def send():
+        return  "&full_name="+ urllib.parse.quote(str(e.getFull_name())) + "&age=" + urllib.parse.quote(str(e.getAge())) + "&rating="+ urllib.parse.quote(str(e.getRating())) + "&wins=" + urllib.parse.quote(str(e.getWins()))

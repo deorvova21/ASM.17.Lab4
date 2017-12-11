@@ -6,29 +6,27 @@ import  re
 class Squad:
     
     FILENAME = "st05/file.txt"
-    spisok = []
+    List = []
     
     def __init__(self):
         pass
 
     def send(self):
         self.rff()
-        if (len(self.spisok)==0):
+        if (len(self.List)==0):
             print("Список пуст")
             return
         lab3 = str((urq.urlopen("http://localhost:81/cgi-bin/lab3.py")).read())
         studentNum = re.search(r'\d+', re.search(r'student=\d+\">\[05\]', lab3).group(0)).group(0)
-        for i in self.spisok:
+        for i in self.List:
             warInf = i.send()
             print(warInf)
-            if type(i) is Warrior:
-                urq.urlopen("http://localhost:81/cgi-bin/lab3.py?index=-1&student=" + studentNum + warInf + "&action=6")
-            else:
-                urq.urlopen("http://localhost:81/cgi-bin/lab3.py?index=-1&student=" + studentNum + warInf + "&action=7")
+            urq.urlopen("http://localhost:81/cgi-bin/lab3.py?index=-1&id=&student=" + studentNum + warInf)
+
         
     def rff(self):
         pickle_in = open(Squad.FILENAME,"rb")
-        self.spisok = pickle.load(pickle_in)
+        self.List = pickle.load(pickle_in)
     
 
 
