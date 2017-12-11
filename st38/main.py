@@ -22,7 +22,7 @@ def main():
             params = {
                 'student': student,
                 'action': 6,
-                'index': 'add',
+                'index': '8',
                 'type': person.type,
                 'name': person.name,
                 'age': person.age,
@@ -33,7 +33,7 @@ def main():
             params = {
                 'student': student,
                 'action': 7,
-                'index': 'add',
+                'index': '8',
                 'type': person.type,
                 'name': person.name,
                 'age': person.age,
