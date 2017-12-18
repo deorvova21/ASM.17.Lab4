@@ -1,59 +1,44 @@
-import os
-import pickle
-import urllib.parse
-import urllib.request
+import pickle, urllib.request, re
 
-from st35.candidate import Candidate
+from .candidate import Candidate
+from .exp_candidate import Exp_Candidate
 
+filename = 'st35/pickledata.dat'
 
 class Data_Base:
     def __init__(self):
         self.l = list()
-
+    # метод, считывающий данные сосискателей из файла
     def read_file(self):
-        if (os.path.exists("st35/pickledata.dat")):
-            self.l = pickle.load(open("st35/pickledata.dat", "rb"))
-            print("Список прочтён!")
-        else:
-            print("Файл не найден!")
+        try:
+            with open(filename, 'rb') as f:
+                self.l = pickle.load(f)
+                print("Файл считан")
+                print("Количество соискателей в списке: " + str(len(self.l)))
+        except FileNotFoundError:
+            print("Файл отсутствует")
+    # метод, реализующий передачу считанных с файла данных на веб-сервер
+    def sendList(self):
 
-    def server(self):
-        f = urllib.request.urlopen("http://localhost:81/cgi-bin/lab3.py")
-        text = str(f.read())
-        kol = len(text)
-        i = kol-4
-        k1 = -1
-        k2 = -1
+        print("Данные отправляются на сервер")
+        if (len(self.l) == 0):
+            print("Список пуст!")
+            return
+        # определяем значение параметра 'student'
+        zapros = str((urllib.request.urlopen("http://localhost:81/cgi-bin/lab3.py")).read())
+        result = re.search(r'\d+', re.search(r'student=\d+\">\[35\]', zapros).group(0)).group(0)
 
-        while (i != 0):
-            if (text[i] == '[') and (text[i+1] == '0') and (text[i+2] ==' 5') and (text[i+3] == ']'):
-                k1 = 1
-            if (text[i] == '"'):
-                if (k1 == 1) and (k2 != -1):
-                    k1 = i+1
-                    break
-                if (k1 == 1):
-                    k2 = i
-            i += -1
-        text = text[k1:k2]
-        kol = len(self.l)
+        # чистим базу
+        urllib.request.urlopen("http://localhost:81/cgi-bin/lab3.py?student=" + result + "&action=5")
+        print("База данных очищена")
 
-        if (kol != 0):
-            f = urllib.request.urlopen("http://localhost:81"+text+"&action=5")
-            f.read()
-            k=0
-            for o in self.l:
-                if type(o) is Candidate:
-                    i = 1
-                else:
-                    i = 2
-                mes = o.write()
-                mes.append(["add",i])
-                mes = dict(mes)
-                enc_data = urllib.parse.urlencode(mes)
-                k += 1
-                f = urllib.request.urlopen("http://localhost:81"+text+"&action=6&"+enc_data)
-                f.read()
-            print("Ok!")
-        else:
-            print("Список пуст")
+        # поочередно высылаем данные кандидатов на веб-сервер
+        id = 0
+        for element in self.l:
+            zapros = element.send(str(id))
+            urllib.request.urlopen("http://localhost:81/cgi-bin/lab3.py?student=" + result + zapros).read()
+            print(zapros)
+            zapros = ""
+            id += 1
+        print("Данные отправлены на сервер!")
+        print(str(id))

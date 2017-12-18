@@ -1,11 +1,11 @@
-from st35.data_base import Data_Base
+from .data_base import *
 
 def main():
         data_base = Data_Base()
 
         list = [
 	["Считать список из файла", data_base.read_file],
-        ["Отправить данные на сервер", data_base.server],
+        ["Отправить данные на сервер", data_base.sendList],
 	]
 
         try:

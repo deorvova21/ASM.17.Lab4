@@ -1,17 +1,14 @@
+import urllib.request as kod
+
 class Candidate:
+    def __init__(self):
+        self.first_name = ""
+        self.last_name = ""
+        self.gender = ""
+        self.age = ""
+        self.mail = ""
 
-    def read(self):
-        print("Введите имя:")
-        self.first_name = input()
-        print("Введите фамилию:")
-        self.last_name = input()
-        print("Введите пол:")
-        self.gender = input()
-        print("Введите возраст:")
-        self.age = input()
-        print("Введите E-mail:")
-        self.mail = input()
-
-    def write(self):
-        l=[["first_name", self.first_name], ["last_name", self.last_name], ["gender", self.gender], ["age", self.age], ["mail", self.mail]]
-        return l
+    def send(self, id):
+        s = "&action=1&type=3&id=" + id + "&add=1&first_name=" + kod.quote(self.first_name) + "&last_name=" + kod.quote(
+            self.last_name) + "&gender=" + kod.quote(self.gender)+ "&age=" + kod.quote(self.age) + "&mail=" + kod.quote(self.mail)
+        return s

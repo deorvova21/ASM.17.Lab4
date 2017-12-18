@@ -1,18 +1,14 @@
-from st35.candidate import Candidate
+import urllib.request as kod
+from .candidate import Candidate
 
 class Exp_Candidate(Candidate):
 
     def __init__(self):
         super().__init__()
+        self.experience = ""
+        self.last_job = ""
 
-    def read(self):
-        Candidate.read()
-        print("Введите опыт работы:")
-        self.experience = input()
-        print("Введите последнее место работы:")
-        self.last_job = input()
-
-    def write(self):
-        l = Candidate.write(self)
-        l.append(["experience", self.experience],["last_job", self.last_job])
-        return l
+    def send(self, id):
+        s = "&action=1&type=3&id=" + id + "&add=2&first_name=" + kod.quote(self.first_name) + "&last_name=" + kod.quote(
+            self.last_name) + "&gender=" + kod.quote(self.gender)+ "&age=" + kod.quote(self.age) + "&mail=" + kod.quote(self.mail)  + "&experience=" + kod.quote(self.experience)  + "&last_job=" + kod.quote(self.last_job)
+        return s
