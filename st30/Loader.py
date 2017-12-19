@@ -30,17 +30,9 @@ class Loader():
 					break
 		try:
 			for book in self.__base:
-				fields = {'title': book.title,
-				          'cost': book.cost,
-				          'publishing_house': book.publishing_house,
-				          'author': book.author,
-				          'student': self.student_id}
-				if (book.__class__.__name__ == 'Classbook'):
-					fields['subject'] = book.subject
-					fields['type'] = 'save_classbook'
-				if (book.__class__.__name__ == 'Book'):
-					fields['type'] = 'save_book'
-
+				fields = book.get_fields()
+				fields['student'] = self.student_id
+				fields['id_book'] = 0
 				request_url = self.url + '?' + urllib.parse.urlencode(fields)
 				urllib.request.urlopen(request_url)
 		except Exception as e:
