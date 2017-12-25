@@ -6,20 +6,20 @@ from .Person import Person
 
 
 class Loader:
-    def __init__(self, person_id):
-        self.person = ''
+    def __init__(self, student_id):
+        self.student = ''
         self.url = "http://localhost:81/cgi-bin/lab3.py"
-        self.find_id(person_id)
+        self.find_id(student_id)
 
-    def find_id(self, person_id):
+    def find_id(self, student_id):
         res = urllib.request.urlopen(self.url)
         lab3 = str(res.read())
         res.close()
-        num = re.search(r'person=(\d+)\">\[' + person_id + '\]', lab3).group(1)
-        self.person = '&person={0}'.format(num)
+        num = re.search(r'student=(\d+)\">\[' + student_id + '\]', lab3).group(1)
+        self.student = '&student={0}'.format(num)
 
     def _request(self, params):
-        url = self.url + '?' + params + self.person
+        url = self.url + '?' + params + self.student
         urllib.request.urlopen(url)
 
 
