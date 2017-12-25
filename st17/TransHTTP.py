@@ -1,6 +1,7 @@
 import re
 import urllib.request as rq
 import urllib.parse as prs
+from st17.Dish import Dish
 from st17.VipDish import VipDish
 
 class TransHTTP:
@@ -13,19 +14,7 @@ class TransHTTP:
             .group(1)
 
     def SendDish(self, d):
-        options = {'name': d.name,
-                  'price': d.price,
-                  'grams': d.grams,
-                  'description': d.description,
-                  'student':self.student,
-                  'id': 0}
-        
-        if (isinstance(d, VipDish)):
-            options['type'] = 1
-            options['bonus'] = d.bonus
-            options['calories'] = d.calories
-        else:
-            options['type'] = 0
-            
+        options=d.GetOptions()
+        options['student']=self.student
         request_url = self.url + '?' + prs.urlencode(options)
         rq.urlopen(request_url)

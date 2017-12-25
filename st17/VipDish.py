@@ -25,4 +25,9 @@ class VipDish(Dish):
         print("""4) bonus - {0}
 5) calories - {1}""".format(self.bonus,self.calories))
 
-
+    def GetOptions(self):
+        options=self.CommonOptions()
+        options['bonus']=self.bonus
+        options['calories']=self.calories
+        options['type']=1
+        return options

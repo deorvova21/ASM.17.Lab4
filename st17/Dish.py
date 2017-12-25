@@ -41,3 +41,16 @@ class Dish:
                 break
             self.edit[int(i)]()
             self.ShowDish()
+
+    def CommonOptions(self):
+        options = {'name': self.name,
+                  'price': self.price,
+                  'grams': self.grams,
+                  'description': self.description}
+        return options
+
+    def GetOptions(self):
+        options = self.CommonOptions()
+        options['type']=0
+        return options
+        
