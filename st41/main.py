@@ -17,17 +17,10 @@ def main():
 
     for music in musics:
         data = music.get_data()
-        type = data.get('type')
-
-        action = None
-        if type == 'native':
-            action = 'insert_native'
-        elif type == 'foreign':
-            action = 'insert_foreign'
-
+        
         params = {**data, **{
             'student': student_num,
-            'action': action
+            'action': music.get_action()
         }}
 
         import_url = base_url + '?' + urlencode(params)
