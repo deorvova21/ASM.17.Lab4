@@ -6,6 +6,9 @@ class Foreign(Native):
         super().__init__(id, name, album_name, year)
         self.type = 'foreign'
         self.country = country
+        
+    def get_action():
+        return 'insert_foreign'
 
     def get_data(self):
         return {
