@@ -5,6 +5,9 @@ class Native:
         self.name = name
         self.album_name = album_name
         self.year = year
+    
+    def get_action():
+        return 'insert_native'
 
     def get_data(self):
         return {
