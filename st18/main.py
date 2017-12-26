@@ -1,33 +1,31 @@
-from .items import *
+from .Car_company import *
 
-It = Items()
+car_company=Car_company()
 
-list = [
-["Считать из файла список", It.read_file],
-["Отправить список на сервер", It.send]
-]
 
 def main():
-        try:
-                i=1
-                print("Введите номер действия")
-                for o in list:
-                        print(i, o[0])
-                        i+=1
-                print("Для возврата в предыдуще меню нажмите 0")    
-                k = int(input())
-                if (k==0): return
-                print("")
-                list[k-1][1]()
-                print("")
-                main()
-        except:
-                print("Введено некорректное значение")
-                main()
-
-
-
-                
-                        
-                
-                        
+    MENU = [
+        ['Load from file', car_company.loading],
+        ['Write in database', car_company.store],
+        ['Clear database', car_company.delete],
+        ['Add car', car_company.add_stu],
+        ['Show', car_company.show],
+        ['Delete', car_company.dell],
+        ['Edit', car_company.change],
+        ['Add driver', car_company.add_sta],
+        ['Exit']
+        ]
+    try:
+        while True:
+            i = 0
+            for item in MENU:
+                    print(i, item[0])
+                    i += 1
+            print("------------------------------")
+            opt = int(input('Enter number of operation: '))
+            if opt!=8:
+                MENU[opt][1]()
+            else:
+                break
+    except:
+        print('exception')
