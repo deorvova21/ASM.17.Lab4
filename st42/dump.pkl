@@ -1,9 +1,0 @@
-﻿Ђ]q (cst42.drilling_rig
-Drilling_rig
-q)Ѓq}q(X   _nameqX   123qX	   _dateqX   sdfgqX   _capacityqX   45756q	ubh)Ѓq
-}q(hX   ssdfqhX   436879q
-hX	   dfsdvgdfgqubcst42.developed_rig
-Developed_rig
-q)Ѓq}q(hX   sdfsdqhX   32456bfdqhX   asfsd34qX   _source_nationqX
-   sdgsgsgsfgqX
-   _colourqX   qweqrcxqube.

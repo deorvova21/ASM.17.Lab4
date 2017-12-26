@@ -1,26 +1,16 @@
-from .quiz import *
-import pickle
+from .platform import *
 
+platform = Platform()
 
-URL = 'http://localhost:81/cgi-bin/lab3.py'
-DUMP = 'st42/dump.pkl'
-ABS_NUMBER = 42
-
+menu = {"1": ("Отправить", platform.send),
+        "2": ("Выйти", "")}
 
 def main():
-    u = Quiz(URL, ABS_NUMBER)
-    thing = None
-    with open(DUMP, 'rb') as f:
-        print("Файл готов к отправке: ", DUMP)
-        thing = pickle.load(f)
-
-    for i, person in enumerate(thing):
-        u.send_person(person)
-        print('{0} of {1} отправлен'.format(i+1, len(thing)))
-
-    print("Done")
-
-
-
-
-
+    while True:
+        for key in menu:
+            print(key + " " + menu[key][0])
+            
+        user_input = input("")
+        if int(user_input) == 2:
+            break
+        menu[user_input][1]()
