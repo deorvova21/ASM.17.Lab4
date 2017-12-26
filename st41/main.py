@@ -15,8 +15,8 @@ def main():
     student_num = re.search(r'student=(\d+)\">\[' + str(41) + '\]', content).group(1)
     print('student number is ' + student_num)
 
-    for phone in musics:
-        data = phone.get_data()
+    for music in musics:
+        data = music.get_data()
         type = data.get('type')
 
         action = None
