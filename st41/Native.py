@@ -6,6 +6,7 @@ class Native:
         self.album_name = album_name
         self.year = year
     
+    @staticmethod
     def get_action():
         return 'insert_native'
 
