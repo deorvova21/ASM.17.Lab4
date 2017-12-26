@@ -17,8 +17,7 @@ class Transport:
                   'DepName': obj.DepName,
                   'Floor': obj.Floor,
                   'info': obj.info,
-                  'student':self.student,
-                  'id': 0}
+                  'student':self.student}
         
         if (isinstance(obj, Employee)):
             options['type'] = 2
