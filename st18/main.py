@@ -1,31 +1,16 @@
-from .Car_company import *
+from .autopark import *
 
-car_company=Car_company()
+autopark = autopark()
 
+menu = {"1": ("Отправить", autopark.send),
+        "2": ("Выход", "")}
 
 def main():
-    MENU = [
-        ['Load from file', car_company.loading],
-        ['Write in database', car_company.store],
-        ['Clear database', car_company.delete],
-        ['Add car', car_company.add_stu],
-        ['Show', car_company.show],
-        ['Delete', car_company.dell],
-        ['Edit', car_company.change],
-        ['Add driver', car_company.add_sta],
-        ['Exit']
-        ]
-    try:
-        while True:
-            i = 0
-            for item in MENU:
-                    print(i, item[0])
-                    i += 1
-            print("------------------------------")
-            opt = int(input('Enter number of operation: '))
-            if opt!=8:
-                MENU[opt][1]()
-            else:
-                break
-    except:
-        print('exception')
+    while True:
+        for key in menu:
+            print(key + " " + menu[key][0])
+            
+        user_input = input("")
+        if int(user_input) == 2:
+            break
+        menu[user_input][1]()

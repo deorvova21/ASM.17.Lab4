@@ -1,20 +1,15 @@
-import cgi
+import urllib.request as urq
 
 class Car:
-    def __init__(self,name='',color='', price=''):
-        self.name=''
-        self.color=''
-        self.price=''
-        
-    def write(self):
-        car={'name':self.name, 'color':self.color, 'price':self.price}
-        return car
-    
-    def edit(self):    
-        self.name=input('Name: ')
-        self.color=input('Color: ')
-        self.price=input('Price: ')
+
+    def __init__(self):
+        self.id = ""
+        self.model = ""
+        self.type = ""
+        self.color = ""
 
 
-    
+    def send(self):
+        autoInf = "&model="+urq.quote(self.model)+"&type="+urq.quote(self.type)+"&color="+urq.quote(self.color)+"&action=6"  
+        return autoInf
     
