@@ -1,0 +1,11 @@
+Ä]q cst18.fullinfcarfullinfcar
+q)Åq}q(X   modelqX   123qX   typeqX   123123qX   colorqX	   123123123q	X   nitroq
+X    qX   modificationqhX   qqccgi
+FieldStorage
+q)Åq}q(X   keep_blank_valuesqK X   strict_parsingqK X
+   qs_on_postqNX   headersq}qX   content-typeqX!   application/x-www-form-urlencodedqsX   fpqc_io
+BytesIO
+q)ÅqCBindex=-1&student=27&model=123&type=123123&color=123123123&action=6qKBNáqbX   encodingqX   utf-8qX   errorsqX   replaceq X   outerboundaryq!C q"X
+   bytes_readq#K X   limitq$JˇˇˇˇX   dispositionq%hX   disposition_optionsq&}q'X   nameq(NX   filenameq)NX   _binary_fileq*âhX!   application/x-www-form-urlencodedq+X   type_optionsq,}q-X   innerboundaryq.h"X   lengthq/JˇˇˇˇX   listq0]q1(ccgi
+MiniFieldStorage
+q2)Åq3}q4(h(X   indexq5X   valueq6X   -1q7ubh2)Åq8}q9(h(X   studentq:h6X   27q;ubh2)Åq<}q=(h(X   modelq>h6hubh2)Åq?}q@(h(X   typeqAh6hubh2)ÅqB}qC(h(X   colorqDh6h	ubh2)ÅqE}qF(h(X   actionqGh6X   6qHubeX   fileqINX   doneqJK ubX   selfurlqKX   /cgi-bin/lab2.pyqLuba.
