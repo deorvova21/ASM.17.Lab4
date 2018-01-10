@@ -59,3 +59,16 @@ mileage: {4}""".format(self.gosnomer,self.mark,self.model,self.horsepower,self.m
                     self.edit[str(inp)]()
                 except:
                     inp=input("\nEnter the parameter for editing. To return enter 'back'.\n")
+
+    def add_options_car(self):
+        options = {'gosnomer': self.gosnomer,
+                          'mark': self.mark,
+                          'model': self.model,
+                          'horsepower': self.horsepower,
+                          'mileage':self.mileage}
+        return options
+
+    def add_options(self):
+        options = self.add_options_car()
+        options['type'] = 'add_car'
+        return options

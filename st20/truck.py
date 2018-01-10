@@ -30,3 +30,10 @@ class truck(car):
         car.show_car(self)
         print("""height: {0}
 carrying: {1}""".format(self.height,self.carrying))
+
+    def add_options(self):
+        options = self.add_options_car()
+        options['height'] = self.height
+        options['carrying'] = self.carrying
+        options['type'] = 'add_truck'
+        return options
