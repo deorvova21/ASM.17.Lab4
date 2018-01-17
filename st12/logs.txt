@@ -1,0 +1,1 @@
+Edit method of myClass was called(exemplar 1) 
